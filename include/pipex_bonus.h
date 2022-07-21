@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   pipex_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kshim <kshim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 16:32:16 by kshim             #+#    #+#             */
-/*   Updated: 2022/07/21 13:50:28 by kshim            ###   ########.fr       */
+/*   Updated: 2022/07/21 13:49:13 by kshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#ifndef PIPEX_BONUS_H
+# define PIPEX_BONUS_H
 
 typedef struct s_pipex_data{
 	int		argc;
 	char	**argv;
 	char	**envp;
+	int		fd_here_doc;
 	int		cmd_n;
 	int		cmd_last;
 	int		pipe_old;
@@ -30,6 +31,8 @@ typedef struct s_pipex_data{
 
 typedef enum e_error_index{
 	FAIL_MALLOC = 0,
+	FAIL_HERE_DOC,
+	FAIL_GNL,
 	FAIL_FORK,
 	FAIL_PIPE,
 	FAIL_CLOSE,
@@ -48,6 +51,9 @@ void			ft_px_wait_on_child(t_ft_px_data *px_data);
 
 void			ft_px_task_children(t_ft_px_data *px_data);
 void			ft_px_task_child_io_file(t_ft_px_data *px_data);
+
+int				ft_px_is_here_doc(t_ft_px_data *px_data);
+void			ft_px_write_tmp_here_doc(t_ft_px_data *px_data);
 
 t_ft_px_data	*ft_px_init_px_data(int argc, char **argv, char **envp);
 void			ft_px_init_paths(char **envp, t_ft_px_data *px_data);

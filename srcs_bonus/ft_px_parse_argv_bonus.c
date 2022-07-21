@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_px_parse_argv.c                                 :+:      :+:    :+:   */
+/*   ft_px_parse_argv_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kshim <kshim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:35:45 by kshim             #+#    #+#             */
-/*   Updated: 2022/07/21 13:51:52 by kshim            ###   ########.fr       */
+/*   Updated: 2022/07/21 13:52:52 by kshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "../include/pipex_bonus.h"
 #include "../libft/libft.h"
 #include "fcntl.h"
 #include "unistd.h"
@@ -21,10 +21,18 @@ void	ft_px_input_file(t_ft_px_data *px_data)
 	int	fd_in;
 
 	fd_in = -1;
-	if (access(px_data -> argv[1], F_OK | R_OK) == 0)
-		fd_in = open(px_data -> argv[1], O_RDONLY);
+	if (px_data -> fd_here_doc != -1)
+	{
+		fd_in = open("./.here_doc.tmp", O_RDONLY);
+		unlink("./.here_doc.tmp");
+	}
 	else
-		ft_px_exit_with_message("ft_px_input_fle", FAIL_NO_FILE);
+	{
+		if (access(px_data -> argv[1], F_OK | R_OK) == 0)
+			fd_in = open(px_data -> argv[1], O_RDONLY);
+		else
+			ft_px_exit_with_message("ft_px_input_fle", FAIL_NO_FILE);
+	}
 	if (fd_in == -1)
 		ft_px_exit_with_message("ft_px_pipex", FAIL_OPEN_FILE);
 	if (dup2(fd_in, 0) < 0
@@ -38,8 +46,12 @@ void	ft_px_output_file(t_ft_px_data *px_data)
 	int	fd_out;
 
 	fd_out = -1;
-	fd_out = open(px_data -> argv[px_data -> argc - 1],
-			O_CREAT | O_TRUNC | O_WRONLY, 0666);
+	if (px_data -> fd_here_doc != -1)
+		fd_out = open(px_data -> argv[px_data -> argc - 1],
+				O_CREAT | O_APPEND | O_WRONLY, 0666);
+	else
+		fd_out = open(px_data -> argv[px_data -> argc - 1],
+				O_CREAT | O_TRUNC | O_WRONLY, 0666);
 	if (fd_out == -1)
 		ft_px_exit_with_message("ft_px_pipex", FAIL_OPEN_FILE);
 	if (dup2(fd_out, 1) < 0

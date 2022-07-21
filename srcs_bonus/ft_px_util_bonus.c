@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_px_util.c                                       :+:      :+:    :+:   */
+/*   ft_px_util_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kshim <kshim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:46:21 by kshim             #+#    #+#             */
-/*   Updated: 2022/07/21 13:50:16 by kshim            ###   ########.fr       */
+/*   Updated: 2022/07/21 13:52:59 by kshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "../include/pipex_bonus.h"
 #include "../libft/libft.h"
 
 t_ft_px_data	*ft_px_init_px_data(int argc, char **argv, char **envp)
@@ -20,6 +20,7 @@ t_ft_px_data	*ft_px_init_px_data(int argc, char **argv, char **envp)
 	px_data = (t_ft_px_data *)malloc(sizeof(t_ft_px_data));
 	if (px_data == 0)
 		ft_px_exit_with_message("ft_px_init_px_data", FAIL_MALLOC);
+	px_data -> fd_here_doc = -1;
 	px_data -> argc = argc;
 	px_data -> argv = argv;
 	px_data -> envp = envp;
