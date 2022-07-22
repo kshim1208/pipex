@@ -17,7 +17,6 @@
 
 void	ft_px_task_children(t_ft_px_data *px_data)
 {
-
 	if (px_data -> cmd_n == px_data -> cmd_last
 		|| px_data -> cmd_n == 1)
 		ft_px_task_child_io_file(px_data);
