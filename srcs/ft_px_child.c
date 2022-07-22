@@ -6,15 +6,18 @@
 /*   By: kshim <kshim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:28:40 by kshim             #+#    #+#             */
-/*   Updated: 2022/07/21 13:51:16 by kshim            ###   ########.fr       */
+/*   Updated: 2022/07/22 09:22:27 by kshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
 #include "unistd.h"
 
+#include "stdlib.h"
+
 void	ft_px_task_children(t_ft_px_data *px_data)
 {
+
 	if (px_data -> cmd_n == px_data -> cmd_last
 		|| px_data -> cmd_n == 1)
 		ft_px_task_child_io_file(px_data);

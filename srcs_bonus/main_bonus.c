@@ -6,13 +6,13 @@
 /*   By: kshim <kshim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 18:12:50 by kshim             #+#    #+#             */
-/*   Updated: 2022/07/21 13:53:08 by kshim            ###   ########.fr       */
+/*   Updated: 2022/07/22 09:32:37 by kshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex_bonus.h"
-#include "stdio.h"
-#include "stdlib.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include "../libft/ft_printf.h"
 
 int	main(int argc, char **argv, char **envp)

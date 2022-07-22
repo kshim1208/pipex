@@ -6,14 +6,14 @@
 /*   By: kshim <kshim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 14:35:45 by kshim             #+#    #+#             */
-/*   Updated: 2022/07/21 13:52:52 by kshim            ###   ########.fr       */
+/*   Updated: 2022/07/22 09:32:15 by kshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex_bonus.h"
 #include "../libft/libft.h"
-#include "fcntl.h"
-#include "unistd.h"
+#include <fcntl.h>
+#include <unistd.h>
 #include "../libft/ft_printf.h"
 
 void	ft_px_input_file(t_ft_px_data *px_data)

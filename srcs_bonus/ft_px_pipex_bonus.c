@@ -6,13 +6,13 @@
 /*   By: kshim <kshim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:13:49 by kshim             #+#    #+#             */
-/*   Updated: 2022/07/21 13:52:57 by kshim            ###   ########.fr       */
+/*   Updated: 2022/07/22 09:32:26 by kshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex_bonus.h"
-#include "unistd.h"
-#include "sys/wait.h"
+#include <unistd.h>
+#include <sys/wait.h>
 
 void	ft_px_pipex(t_ft_px_data *px_data)
 {

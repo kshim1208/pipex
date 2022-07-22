@@ -6,16 +6,16 @@
 /*   By: kshim <kshim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 12:27:50 by kshim             #+#    #+#             */
-/*   Updated: 2022/07/21 13:52:54 by kshim            ###   ########.fr       */
+/*   Updated: 2022/07/22 09:32:06 by kshim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex_bonus.h"
 #include "../include/get_next_line_bonus.h"
 #include "../libft/libft.h"
-#include "fcntl.h"
-#include "stdlib.h"
-#include "unistd.h"
+#include <fcntl.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 int	ft_px_is_here_doc(t_ft_px_data *px_data)
 {
